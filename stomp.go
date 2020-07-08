@@ -13,8 +13,8 @@ import (
 //STOMP ...
 type STOMP struct {
 	Host      string `toml:"host"`
-	Username  string
-	Password  string
+	Username  string `toml:"username"`
+	Password  string `toml:"password"`
 	QueueName string `toml:"queueName"`
 	SSL       bool   `toml:"ssl"`
 	Conn      *tls.Conn
@@ -71,7 +71,7 @@ func (q *STOMP) Write(metrics []telegraf.Metric) error {
 		err = q.Stomp.Send("kannel_log_test", "text/plain",
 			[]byte(values), nil)
 		if err != nil {
-			println("failed to send to server", err)
+			panic("failed to send to server", err)
 			return err
 		}
 	}

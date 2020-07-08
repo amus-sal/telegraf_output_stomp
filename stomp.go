@@ -2,7 +2,6 @@ package main
 
 import (
 	"crypto/tls"
-	"flag"
 	"net"
 
 	"github.com/go-stomp/stomp"
@@ -10,7 +9,6 @@ import (
 	"github.com/influxdata/telegraf/plugins/outputs"
 	"github.com/influxdata/telegraf/plugins/serializers"
 )
-
 
 //STOMP ...
 type STOMP struct {
@@ -49,7 +47,7 @@ func (q *STOMP) Connect() error {
 
 func (q *STOMP) buildOtp(ConnOpt *stomp.ConnOpt) *stomp.ConnOpt {
 	ConnOpt.Login(q.Username, q.Password)
-	ConnOpt.HeartBeat(0, 0))
+	ConnOpt.HeartBeat(0, 0)
 	return ConnOpt
 }
 

@@ -45,7 +45,7 @@ func (q *STOMP) Connect() error {
 	return nil
 }
 
-func (q *STOMP) buildOtp(ConnOpt *stomp.ConnOpt) *stomp.ConnOpt {
+func (q *STOMP) buildOtp(ConnOpt stomp.ConnOpt) stomp.ConnOpt {
 	ConnOpt.Login(q.Username, q.Password)
 	ConnOpt.HeartBeat(0, 0)
 	return ConnOpt

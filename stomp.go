@@ -68,7 +68,7 @@ func (q *STOMP) Write(metrics []telegraf.Metric) error {
 			return err
 		}
 		println("Field values are: ", values)
-		err = q.Stomp.Send("kannel_log_test", "text/plain",
+		err = q.Stomp.Send(q.QueueName, "text/plain",
 			[]byte(values), nil)
 		if err != nil {
 			panic("failed to send to server", err)

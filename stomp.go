@@ -3,7 +3,6 @@ package stomp
 import (
 	"crypto/tls"
 	"net"
-
 	"github.com/go-stomp/stomp"
 	"github.com/influxdata/telegraf"
 	"github.com/influxdata/telegraf/plugins/outputs"
